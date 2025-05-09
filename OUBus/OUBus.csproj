@@ -83,13 +83,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AdminAddProducts.cs">
+    <Compile Include="AdminThemChuyen.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="AdminAddProducts.Designer.cs">
-      <DependentUpon>AdminAddProducts.cs</DependentUpon>
+    <Compile Include="AdminThemChuyen.Designer.cs">
+      <DependentUpon>AdminThemChuyen.cs</DependentUpon>
     </Compile>
-    <Compile Include="AdminAddProductsData.cs" />
+    <Compile Include="AdminThemChuyenData.cs" />
     <Compile Include="AdminAddUsers.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -109,6 +109,24 @@
     <Compile Include="AdminMainForm.Designer.cs">
       <DependentUpon>AdminMainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="AdminViewBooking.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AdminViewBooking.Designer.cs">
+      <DependentUpon>AdminViewBooking.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CheckerCheckStudent.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CheckerCheckStudent.Designer.cs">
+      <DependentUpon>CheckerCheckStudent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CheckerMainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CheckerMainForm.Designer.cs">
+      <DependentUpon>CheckerMainForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -117,14 +135,20 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RegisterForm.cs">
+    <Compile Include="StudentBooking.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="StudentBooking.Designer.cs">
+      <DependentUpon>StudentBooking.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StudentMainForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="RegisterForm.Designer.cs">
-      <DependentUpon>RegisterForm.cs</DependentUpon>
+    <Compile Include="StudentMainForm.Designer.cs">
+      <DependentUpon>StudentMainForm.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="AdminAddProducts.resx">
-      <DependentUpon>AdminAddProducts.cs</DependentUpon>
+    <EmbeddedResource Include="AdminThemChuyen.resx">
+      <DependentUpon>AdminThemChuyen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AdminAddUsers.resx">
       <DependentUpon>AdminAddUsers.cs</DependentUpon>
@@ -134,6 +158,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AdminMainForm.resx">
       <DependentUpon>AdminMainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminViewBooking.resx">
+      <DependentUpon>AdminViewBooking.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CheckerCheckStudent.resx">
+      <DependentUpon>CheckerCheckStudent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CheckerMainForm.resx">
+      <DependentUpon>CheckerMainForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
@@ -148,8 +181,11 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="RegisterForm.resx">
-      <DependentUpon>RegisterForm.cs</DependentUpon>
+    <EmbeddedResource Include="StudentBooking.resx">
+      <DependentUpon>StudentBooking.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StudentMainForm.resx">
+      <DependentUpon>StudentMainForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

@@ -15,13 +15,15 @@ namespace OUBus
     public partial class AdminAddUsers : UserControl
     {
         //vô lấy lại đường dẫn của cafe.mdf
-        SqlConnection connect = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=H:\OUBus_2\OUBus_2\OUBus\cafe.mdf;Integrated Security=True;Connect Timeout=30");
+        private readonly string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=H:\OUBus_2\OUBus_2\OUBus\cafe.mdf;Integrated Security=True;Connect Timeout=30";
+        private readonly string userDirectoryPath = @"H:\OUBus_2\OUBus_2\OUBus\User_Directory";
+        private SqlConnection connect;
         public AdminAddUsers()
         {
             InitializeComponent();
-
+            connect = new SqlConnection(connectionString);
             displayAddUsersData();
-            
+
         }
 
         public void displayAddUsersData()
@@ -37,11 +39,29 @@ namespace OUBus
         {
 
         }
+        private byte[] ConvertImageToByteArray(string imagePath)
+        {
+            if (string.IsNullOrEmpty(imagePath) || !File.Exists(imagePath))
+                return null;
 
-     
+            return File.ReadAllBytes(imagePath);
+        }
+        private string SaveImageToDirectory(string username, string sourceImagePath)
+        {
+            string path = Path.Combine(userDirectoryPath, username + ".jpg");
+            string directory = Path.GetDirectoryName(path);
+
+            if (!Directory.Exists(directory))
+                Directory.CreateDirectory(directory);
+
+            File.Copy(sourceImagePath, path, true);
+            return path;
+        }
+
+
         public bool emptyField()
         {
-            if (adminAddUsers_username.Text == "" || adminAddUsers_password.Text == "" || adminAddUsers_role.Text == "" || adminAddUsers_status.Text == "" || adminAddUsers_imageView.Image==null)
+            if (adminAddUsers_username.Text == "" || adminAddUsers_password.Text == "" || adminAddUsers_phone.Text == ""  || adminAddUsers_role.Text == "" || adminAddUsers_imageView.Image==null)
             {
                 return true;
             }
@@ -50,149 +70,125 @@ namespace OUBus
                 return false;
             }
         }
-        private void button1_Click(object sender, EventArgs e)//adminAddUsers_addBtn
+        private void button1_Click(object sender, EventArgs e) // adminAddUsers_addBtn
         {
-            if(emptyField())
+            if (connect.State == ConnectionState.Closed)
             {
-                MessageBox.Show("All fields are required to be filled", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else
-            {
-                if(connect.State== ConnectionState.Closed)
+                try
                 {
-                    try
+                    connect.Open();
+
+                    string checkQuery = "SELECT COUNT(*) FROM users WHERE username = @usern";
+                    using (SqlCommand checkCmd = new SqlCommand(checkQuery, connect))
                     {
-                        connect.Open();
+                        checkCmd.Parameters.AddWithValue("@usern", adminAddUsers_username.Text.Trim());
+                        int count = (int)checkCmd.ExecuteScalar();
 
-                        //Check username if existing already
-                        string selectUsern = "SELECT * FROM users WHERE username= @usern";
-
-
-                        using (SqlCommand checkUsern = new SqlCommand(selectUsern, connect))
+                        if (count > 0)
                         {
-                            checkUsern.Parameters.AddWithValue("@usern", adminAddUsers_username.Text.Trim());
-
-                            SqlDataAdapter adapter = new SqlDataAdapter(checkUsern);
-                            DataTable table = new DataTable();
-                            adapter.Fill(table);
-
-                            if(table.Rows.Count>=1)
-                            {
-                                string usern= adminAddUsers_username.Text.Substring(0,1).ToUpper()+ adminAddUsers_username.Text.Substring(1);
-                                MessageBox.Show(usern+" is already taken", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-                            }
-                            else
-                            {
-                                string insertData = "INSERT INTO users (username, password,profile_image, role, status, date_reg)" +
-                                    "VALUES(@usern, @pass, @image, @role, @status, @date)";
-
-
-                                DateTime today = DateTime.Today;
-                                //Đổi đường dẫn ở dưới lại 
-                                string path = Path.Combine(@"H:\OUBus_2\OUBus_2\OUBus\User_Directory", adminAddUsers_username.Text.Trim() + ".jpg");
-
-                                string directoryPath = Path.GetDirectoryName(path);
-
-                                if(!Directory.Exists(directoryPath))
-                                {
-                                    Directory.CreateDirectory(directoryPath);   
-                                }
-
-                                File.Copy(adminAddUsers_imageView.ImageLocation, path, true);
-
-                                using(SqlCommand cmd = new SqlCommand(insertData, connect))
-                                {
-                                    cmd.Parameters.AddWithValue("@usern", adminAddUsers_username.Text.Trim());
-                                    cmd.Parameters.AddWithValue("@pass", adminAddUsers_password.Text.Trim());
-                                    cmd.Parameters.AddWithValue("@image", "");
-                                    cmd.Parameters.AddWithValue("@role", adminAddUsers_role.Text.Trim());
-                                    cmd.Parameters.AddWithValue("@status", adminAddUsers_status.Text.Trim());
-                                    cmd.Parameters.AddWithValue("@date", today);
-
-                                    cmd.ExecuteNonQuery();
-                                    clearField();
-
-                                    MessageBox.Show("Added successfully!", "Infomation Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                                    displayAddUsersData();
-                                }
-                            }
-
+                            MessageBox.Show($"{adminAddUsers_username.Text} is already taken", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
                         }
                     }
-                    catch (Exception ex)
+
+                    string path = SaveImageToDirectory(adminAddUsers_username.Text.Trim(), adminAddUsers_imageView.ImageLocation);
+                    byte[] imageData = ConvertImageToByteArray(path); // Convert image to byte array
+
+                    string insertQuery = "INSERT INTO users (username, password, profile_image, phone, role, mssv, date_reg) VALUES (@usern, @pass, @image, @phone, @role, @mssv, @date)";
+                    using (SqlCommand insertCmd = new SqlCommand(insertQuery, connect))
                     {
-                        MessageBox.Show("Connection failed: "+ex,"Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        insertCmd.Parameters.AddWithValue("@usern", adminAddUsers_username.Text.Trim());
+                        insertCmd.Parameters.AddWithValue("@pass", adminAddUsers_password.Text.Trim());
+                        insertCmd.Parameters.AddWithValue("@image", imageData ?? (object)DBNull.Value); // Handle null image
+                        insertCmd.Parameters.AddWithValue("@phone", adminAddUsers_phone.Text.Trim());
+                        insertCmd.Parameters.AddWithValue("@role", adminAddUsers_role.Text.Trim());
+                        insertCmd.Parameters.AddWithValue("@mssv", txtMSSV.Text.Trim());
+                        insertCmd.Parameters.AddWithValue("@date", DateTime.Today);
 
-
+                        insertCmd.ExecuteNonQuery();
                     }
-                    finally
-                    {
 
-                    }
+                    clearField();
+                    MessageBox.Show("Added successfully!", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    displayAddUsersData();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                finally
+                {
+                    connect.Close();
                 }
             }
-                
         }
-
-        private void button3_Click(object sender, EventArgs e) //adminAddUsers_updateBtn
+        private void button3_Click(object sender, EventArgs e) // adminAddUsers_updateBtn
         {
             if (emptyField())
             {
-                MessageBox.Show("All fields are required to be filled", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("All required fields must be filled", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
-            else
+
+            DialogResult result = MessageBox.Show("Are you sure you want to Update Username: " + adminAddUsers_username.Text.Trim() + "?", "Confirmation Message", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
             {
-                DialogResult result = MessageBox.Show("Are you sure to want to Update Username: " + adminAddUsers_username.Text.Trim()
-                    + "?", "Confirmation Message", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                if (result == DialogResult.Yes)
+                try
                 {
-                    if (connect.State != ConnectionState.Open)
+                    connect.Open();
+
+                    string updateData;
+                    SqlCommand cmd;
+
+                    // Nếu có ảnh mới (từ ImageLocation)
+                    if (!string.IsNullOrEmpty(adminAddUsers_imageView.ImageLocation) && File.Exists(adminAddUsers_imageView.ImageLocation))
                     {
-                        try
-                        {
-                            connect.Open();
+                        string imagePath = SaveImageToDirectory(adminAddUsers_username.Text.Trim(), adminAddUsers_imageView.ImageLocation);
+                        byte[] imageData = ConvertImageToByteArray(imagePath);
 
-                            string updateData = "UPDATE users SET username =@usern, password= @pass, role= @role, status= @status WHERE id=@id";
-
-                            using (SqlCommand cmd = new SqlCommand(updateData, connect))
-                            {
-                                cmd.Parameters.AddWithValue("@usern", adminAddUsers_username.Text.Trim());
-                                cmd.Parameters.AddWithValue("@pass", adminAddUsers_password.Text.Trim());
-                                cmd.Parameters.AddWithValue("@role", adminAddUsers_role.Text.Trim());
-                                cmd.Parameters.AddWithValue("@status", adminAddUsers_username.Text.Trim());
-                                cmd.Parameters.AddWithValue("@id", adminAddUsers_username.Text.Trim());
-
-                                cmd.ExecuteNonQuery();
-                                clearField();
-
-                                MessageBox.Show("Updated successfully! ", "Information Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                                displayAddUsersData();
-                            }
-                        }
-                        catch (Exception ex)
-                        {
-                            MessageBox.Show("Connection failed: " + ex, "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-                        }
-                        finally
-                        {
-                            connect.Close();
-                        }
+                        updateData = "UPDATE users SET username = @usern, password = @pass, profile_image = @image, phone = @phone, role = @role, mssv = @mssv WHERE id = @id";
+                        cmd = new SqlCommand(updateData, connect);
+                        cmd.Parameters.AddWithValue("@image", imageData ?? (object)DBNull.Value);
                     }
+                    else
+                    {
+                        // Không cập nhật profile_image
+                        updateData = "UPDATE users SET username = @usern, password = @pass, phone = @phone, role = @role, mssv = @mssv WHERE id = @id";
+                        cmd = new SqlCommand(updateData, connect);
+                    }
+
+                    cmd.Parameters.AddWithValue("@usern", adminAddUsers_username.Text.Trim());
+                    cmd.Parameters.AddWithValue("@pass", adminAddUsers_password.Text.Trim());
+                    cmd.Parameters.AddWithValue("@phone", adminAddUsers_phone.Text.Trim());
+                    cmd.Parameters.AddWithValue("@role", adminAddUsers_role.Text.Trim());
+                    cmd.Parameters.AddWithValue("@mssv", string.IsNullOrEmpty(txtMSSV.Text.Trim()) ? (object)DBNull.Value : txtMSSV.Text.Trim());
+                    cmd.Parameters.AddWithValue("@id", id);
+
+                    cmd.ExecuteNonQuery();
+                    clearField();
+
+                    MessageBox.Show("Updated successfully!", "Information Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    displayAddUsersData();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Connection failed: " + ex.Message, "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                finally
+                {
+                    if (connect.State == ConnectionState.Open)
+                        connect.Close();
                 }
             }
         }
-
-
         public void clearField()
         {
             adminAddUsers_username.Text = "";
             adminAddUsers_password.Text = "";
+            adminAddUsers_phone.Text = "";
             adminAddUsers_role.SelectedIndex = -1;
-            adminAddUsers_status.SelectedIndex = -1;
+            txtMSSV.Text = "";
+
             adminAddUsers_imageView.Image = null;
         }
 
@@ -224,7 +220,7 @@ namespace OUBus
                             using (SqlCommand cmd = new SqlCommand(deleteData, connect))
                             {
                               
-                                cmd.Parameters.AddWithValue("@id", adminAddUsers_username.Text.Trim());
+                                cmd.Parameters.AddWithValue("@id", id);
 
                                 cmd.ExecuteNonQuery();
                                 clearField();
@@ -278,38 +274,68 @@ namespace OUBus
         private int id = 0;
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            DataGridViewRow row = dataGridView1.Rows[e.RowIndex];
-            id = (int) row.Cells[0].Value;
-            adminAddUsers_username.Text = row.Cells[1].Value.ToString();
-            adminAddUsers_password.Text = row.Cells[2].Value.ToString();
-            adminAddUsers_role.Text = row.Cells[3].Value.ToString();
-            adminAddUsers_status.Text = row.Cells[4].Value.ToString();
-
-            string imagePath = row.Cells[5].Value.ToString();
-
-            try
+            if (e.RowIndex >= 0)
             {
-                if (imagePath != null)
+                DataGridViewRow row = dataGridView1.Rows[e.RowIndex];
+                id = (int)row.Cells[0].Value;
+                adminAddUsers_username.Text = row.Cells[1].Value.ToString();
+                adminAddUsers_password.Text = row.Cells[2].Value.ToString();
+                adminAddUsers_phone.Text = row.Cells[3].Value.ToString();
+                adminAddUsers_role.Text = row.Cells[4].Value.ToString();
+                txtMSSV.Text = row.Cells[5].Value.ToString();
+
+                // Tải hình ảnh từ cơ sở dữ liệu
+                try
                 {
-                    adminAddUsers_imageView.Image = Image.FromFile(imagePath);
+                    connect.Open();
+                    string query = "SELECT profile_image FROM users WHERE id = @id";
+                    using (SqlCommand cmd = new SqlCommand(query, connect))
+                    {
+                        cmd.Parameters.AddWithValue("@id", id);
+                        byte[] imageData = cmd.ExecuteScalar() as byte[];
+
+                        if (imageData != null && imageData.Length > 0)
+                        {
+                            using (MemoryStream ms = new MemoryStream(imageData))
+                            {
+                                adminAddUsers_imageView.Image = Image.FromStream(ms);
+                            }
+                        }
+                        else
+                        {
+                            adminAddUsers_imageView.Image = null;
+                        }
+                    }
                 }
-                else
+                catch (Exception ex)
                 {
+                    MessageBox.Show("Lỗi tải hình ảnh: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     adminAddUsers_imageView.Image = null;
                 }
-
+                finally
+                {
+                    connect.Close();
+                }
             }
-            catch(Exception ex)
-            {
-                MessageBox.Show("No Image :3", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-
-    
         }
-
         private void panel2_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void adminAddUsers_role_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string selectedRole = adminAddUsers_role.SelectedItem?.ToString();
+
+            // Hiển thị txtMSSV và lblMSSV nếu vai trò là Student hoặc Checker
+            bool showMSSV = selectedRole == "Student" || selectedRole == "Checker";
+            txtMSSV.Visible = showMSSV;
+            lblMSSV.Visible = showMSSV;
         }
     }
 }

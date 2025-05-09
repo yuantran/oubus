@@ -16,9 +16,10 @@ namespace OUBus
         public int ID { set; get; }
         public string Username { set; get; }
         public string Password { set; get; }
+        public string Phone { set; get; }
         public string Role { set; get; }
-        public string Status { set; get; }
-        public string Image { set; get; }
+        public string MSSV { set; get; }
+        public byte[] Image { set; get; }
         public string DateRegistered { set; get; }
 
 
@@ -44,9 +45,10 @@ namespace OUBus
                             userData.ID = (int)reader["id"];
                             userData.Username = reader["username"].ToString();
                             userData.Password = reader["password"].ToString();
-                            userData.Role = reader["role"].ToString();   
-                            userData.Status = reader["status"].ToString();
-                            userData.Image = reader["profile_image"].ToString();
+                            userData.Phone = reader["phone"].ToString();
+                            userData.Role = reader["role"].ToString();
+                            userData.MSSV = reader["mssv"].ToString();
+                            userData.Image = reader["profile_image"] as byte[];
                             userData.DateRegistered = reader["date_reg"].ToString();
 
                             listData.Add(userData);

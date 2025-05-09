@@ -15,8 +15,10 @@ using System.Windows.Forms;
 
 namespace OUBus
 {
+    
     public partial class Form1 : Form
     {
+	//Nhớ đổi lại
         SqlConnection connect = new SqlConnection(@"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename=H:\OUBus_2\OUBus_2\OUBus\cafe.mdf;Integrated Security = True; Connect Timeout = 30");
 
         public Form1()
@@ -36,9 +38,7 @@ namespace OUBus
 
         private void login_btn_Click(object sender, EventArgs e) //login_registerBtn
         {
-            RegisterForm regForm = new RegisterForm();
-            regForm.Show();
-
+            
             this.Hide();
         }
 
@@ -57,6 +57,14 @@ namespace OUBus
                 return false;
             }
         }
+        public static class LoggedInUser
+        {
+            public static string MSSV { get; set; }
+            public static string Phone { get; set; }
+            public static byte[] Image { get; set; }
+            public static string Username { get; set; }
+
+        }
 
         private void button1_Click(object sender, EventArgs e) //login_btn_Click
         {
@@ -72,38 +80,55 @@ namespace OUBus
                     {
                         connect.Open();
 
-                        string selectAccount = "SELECT * FROM users WHERE username= @usern AND password= @pass AND status= @status";
+                        string selectAccount = "SELECT * FROM users WHERE username = @usern AND password = @pass";
 
                         using (SqlCommand cmd = new SqlCommand(selectAccount, connect))
                         {
                             cmd.Parameters.AddWithValue("@usern", login_username.Text.Trim());
                             cmd.Parameters.AddWithValue("@pass", login_password.Text.Trim());
-                            cmd.Parameters.AddWithValue("@status", "Active");
 
-                            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
-                            DataTable table = new DataTable();
-                            adapter.Fill(table);
-
-                            if(table.Rows.Count >=1)
+                            using (SqlDataReader reader = cmd.ExecuteReader())
                             {
-                                MessageBox.Show("Login successfully", "Information Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                if (reader.Read()) // nếu có tài khoản
+                                {
+                                    string userRole = reader["role"].ToString();
+                                    LoggedInUser.Username = reader["username"].ToString(); // ✅ lưu MSSV vào biến static
+                                    LoggedInUser.MSSV = reader["mssv"].ToString(); // ✅ lưu MSSV vào biến static
+                                    LoggedInUser.Phone = reader["phone"].ToString();
+                                    LoggedInUser.Image = reader["profile_image"] as byte[];
 
-                                AdminMainForm adminForm = new AdminMainForm();
-                                adminForm.Show();
+                                    MessageBox.Show("Login successfully!", "Information Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                                this.Hide();
+                                    if (userRole == "Admin")
+                                    {
+                                        AdminMainForm adminForm = new AdminMainForm();
+                                        adminForm.Show();
+                                        this.Hide();
+                                    }
+                                    else if (userRole == "Student")
+                                    {
+                                        StudentMainForm studentMainForm = new StudentMainForm();
+                                        studentMainForm.Show();
+                                        this.Hide();
+                                    }
+                                    else if (userRole == "Checker")
+                                    {
+                                        CheckerMainForm checkerMainForm = new CheckerMainForm();
+                                        checkerMainForm.Show();
+                                        this.Hide();
+                                    }
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Incorrect Username/Password or there's no admin's approval.", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                }
                             }
-                            else
-                            {
-                                MessageBox.Show("Incorrect Username/Password or there's no admin's approval.", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            }
-
                         }
                     }
                     catch (Exception ex)
                     {
                         MessageBox.Show("Connection failed: " + ex, "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        
+
                     }
                     finally
                     {

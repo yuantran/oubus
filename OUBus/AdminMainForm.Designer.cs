@@ -34,26 +34,27 @@
             this.lbl_oubus = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.logout_btn = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnViewBooking = new System.Windows.Forms.Button();
+            this.btnAddTrip = new System.Windows.Forms.Button();
+            this.btnAddUser = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lblAdminUsername = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.ptbAdminImage = new System.Windows.Forms.PictureBox();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.adminViewBooking1 = new OUBus.AdminViewBooking();
             this.adminDashboardForm1 = new OUBus.AdminDashboardForm();
-            this.adminAddProducts1 = new OUBus.AdminAddProducts();
+            this.adminAddProducts1 = new OUBus.AdminThemChuyen();
             this.adminAddUsers1 = new OUBus.AdminAddUsers();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbAdminImage)).BeginInit();
             this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.SystemColors.Info;
+            this.panel1.BackColor = System.Drawing.SystemColors.Control;
             this.panel1.Controls.Add(this.close);
             this.panel1.Controls.Add(this.lbl_oubus);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -85,15 +86,15 @@
             // 
             // panel2
             // 
-            this.panel2.BackColor = System.Drawing.Color.SteelBlue;
+            this.panel2.BackColor = System.Drawing.Color.LightSeaGreen;
             this.panel2.Controls.Add(this.logout_btn);
-            this.panel2.Controls.Add(this.button4);
-            this.panel2.Controls.Add(this.button3);
-            this.panel2.Controls.Add(this.button2);
+            this.panel2.Controls.Add(this.btnViewBooking);
+            this.panel2.Controls.Add(this.btnAddTrip);
+            this.panel2.Controls.Add(this.btnAddUser);
             this.panel2.Controls.Add(this.button1);
-            this.panel2.Controls.Add(this.label2);
+            this.panel2.Controls.Add(this.lblAdminUsername);
             this.panel2.Controls.Add(this.label1);
-            this.panel2.Controls.Add(this.pictureBox1);
+            this.panel2.Controls.Add(this.ptbAdminImage);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel2.Location = new System.Drawing.Point(0, 37);
             this.panel2.Name = "panel2";
@@ -106,99 +107,101 @@
             this.logout_btn.BackColor = System.Drawing.Color.SteelBlue;
             this.logout_btn.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.logout_btn.ForeColor = System.Drawing.SystemColors.Window;
-            this.logout_btn.Location = new System.Drawing.Point(24, 376);
+            this.logout_btn.Location = new System.Drawing.Point(24, 437);
             this.logout_btn.Name = "logout_btn";
-            this.logout_btn.Size = new System.Drawing.Size(144, 34);
+            this.logout_btn.Size = new System.Drawing.Size(151, 34);
             this.logout_btn.TabIndex = 19;
             this.logout_btn.Text = "Logout";
             this.logout_btn.UseVisualStyleBackColor = false;
             this.logout_btn.Click += new System.EventHandler(this.logout_btn_Click);
             // 
-            // button4
+            // btnViewBooking
             // 
-            this.button4.BackColor = System.Drawing.Color.SteelBlue;
-            this.button4.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.ForeColor = System.Drawing.SystemColors.Window;
-            this.button4.Location = new System.Drawing.Point(24, 276);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(144, 34);
-            this.button4.TabIndex = 18;
-            this.button4.Text = "Customers";
-            this.button4.UseVisualStyleBackColor = false;
+            this.btnViewBooking.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.btnViewBooking.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnViewBooking.ForeColor = System.Drawing.SystemColors.Window;
+            this.btnViewBooking.Location = new System.Drawing.Point(24, 348);
+            this.btnViewBooking.Name = "btnViewBooking";
+            this.btnViewBooking.Size = new System.Drawing.Size(151, 34);
+            this.btnViewBooking.TabIndex = 18;
+            this.btnViewBooking.Text = "Danh sách đặt vé";
+            this.btnViewBooking.UseVisualStyleBackColor = false;
+            this.btnViewBooking.Click += new System.EventHandler(this.btnViewBooking_Click);
             // 
-            // button3
+            // btnAddTrip
             // 
-            this.button3.BackColor = System.Drawing.Color.SteelBlue;
-            this.button3.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.SystemColors.Window;
-            this.button3.Location = new System.Drawing.Point(24, 236);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(144, 34);
-            this.button3.TabIndex = 17;
-            this.button3.Text = "Add Products";
-            this.button3.UseVisualStyleBackColor = false;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.btnAddTrip.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.btnAddTrip.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddTrip.ForeColor = System.Drawing.SystemColors.Window;
+            this.btnAddTrip.Location = new System.Drawing.Point(24, 305);
+            this.btnAddTrip.Name = "btnAddTrip";
+            this.btnAddTrip.Size = new System.Drawing.Size(151, 34);
+            this.btnAddTrip.TabIndex = 17;
+            this.btnAddTrip.Text = "Thêm chuyến";
+            this.btnAddTrip.UseVisualStyleBackColor = false;
+            this.btnAddTrip.Click += new System.EventHandler(this.button3_Click);
             // 
-            // button2
+            // btnAddUser
             // 
-            this.button2.BackColor = System.Drawing.Color.SteelBlue;
-            this.button2.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.SystemColors.Window;
-            this.button2.Location = new System.Drawing.Point(24, 196);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(144, 34);
-            this.button2.TabIndex = 16;
-            this.button2.Text = "Add Cashier";
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.btnAddUser.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.btnAddUser.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddUser.ForeColor = System.Drawing.SystemColors.Window;
+            this.btnAddUser.Location = new System.Drawing.Point(24, 260);
+            this.btnAddUser.Name = "btnAddUser";
+            this.btnAddUser.Size = new System.Drawing.Size(151, 36);
+            this.btnAddUser.TabIndex = 16;
+            this.btnAddUser.Text = "Thêm người dùng";
+            this.btnAddUser.UseVisualStyleBackColor = false;
+            this.btnAddUser.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
             // 
-            this.button1.BackColor = System.Drawing.Color.SteelBlue;
-            this.button1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.button1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.SystemColors.Window;
-            this.button1.Location = new System.Drawing.Point(24, 156);
+            this.button1.Location = new System.Drawing.Point(24, 216);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(144, 34);
+            this.button1.Size = new System.Drawing.Size(151, 38);
             this.button1.TabIndex = 15;
             this.button1.Text = "Dashboard";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // label2
+            // lblAdminUsername
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.SystemColors.Window;
-            this.label2.Location = new System.Drawing.Point(3, 123);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(112, 14);
-            this.label2.TabIndex = 14;
-            this.label2.Text = "Username: Admin";
+            this.lblAdminUsername.AutoSize = true;
+            this.lblAdminUsername.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAdminUsername.ForeColor = System.Drawing.SystemColors.Window;
+            this.lblAdminUsername.Location = new System.Drawing.Point(3, 183);
+            this.lblAdminUsername.Name = "lblAdminUsername";
+            this.lblAdminUsername.Size = new System.Drawing.Size(112, 14);
+            this.lblAdminUsername.TabIndex = 14;
+            this.lblAdminUsername.Text = "Username: Admin";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.Window;
-            this.label1.Location = new System.Drawing.Point(39, 95);
+            this.label1.Location = new System.Drawing.Point(43, 135);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(114, 17);
             this.label1.TabIndex = 13;
             this.label1.Text = "Admin\'s Portal";
             // 
-            // pictureBox1
+            // ptbAdminImage
             // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(42, 15);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(113, 77);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 11;
-            this.pictureBox1.TabStop = false;
+            this.ptbAdminImage.Image = ((System.Drawing.Image)(resources.GetObject("ptbAdminImage.Image")));
+            this.ptbAdminImage.Location = new System.Drawing.Point(24, 3);
+            this.ptbAdminImage.Name = "ptbAdminImage";
+            this.ptbAdminImage.Size = new System.Drawing.Size(151, 129);
+            this.ptbAdminImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.ptbAdminImage.TabIndex = 11;
+            this.ptbAdminImage.TabStop = false;
             // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.adminViewBooking1);
             this.panel3.Controls.Add(this.adminDashboardForm1);
             this.panel3.Controls.Add(this.adminAddProducts1);
             this.panel3.Controls.Add(this.adminAddUsers1);
@@ -209,6 +212,13 @@
             this.panel3.Size = new System.Drawing.Size(951, 530);
             this.panel3.TabIndex = 2;
             this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
+            // 
+            // adminViewBooking1
+            // 
+            this.adminViewBooking1.Location = new System.Drawing.Point(0, 0);
+            this.adminViewBooking1.Name = "adminViewBooking1";
+            this.adminViewBooking1.Size = new System.Drawing.Size(454, 257);
+            this.adminViewBooking1.TabIndex = 3;
             // 
             // adminDashboardForm1
             // 
@@ -229,7 +239,7 @@
             // adminAddUsers1
             // 
             this.adminAddUsers1.Location = new System.Drawing.Point(0, 0);
-            this.adminAddUsers1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.adminAddUsers1.Margin = new System.Windows.Forms.Padding(2);
             this.adminAddUsers1.Name = "adminAddUsers1";
             this.adminAddUsers1.Size = new System.Drawing.Size(972, 528);
             this.adminAddUsers1.TabIndex = 3;
@@ -250,7 +260,7 @@
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbAdminImage)).EndInit();
             this.panel3.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -260,20 +270,21 @@
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox ptbAdminImage;
         private System.Windows.Forms.Label lbl_oubus;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblAdminUsername;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button logout_btn;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnViewBooking;
+        private System.Windows.Forms.Button btnAddTrip;
+        private System.Windows.Forms.Button btnAddUser;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label close;
         private AdminAddUsers adminAddUsers1;
-        private AdminAddProducts adminAddProducts1;
+        private AdminThemChuyen adminAddProducts1;
         
         private AdminDashboardForm adminDashboardForm1;
+        private AdminViewBooking adminViewBooking1;
     }
 }

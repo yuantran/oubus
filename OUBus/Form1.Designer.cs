@@ -28,11 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.panel1 = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.login_registerBtn = new System.Windows.Forms.Button();
             this.close = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -50,8 +49,6 @@
             this.panel1.BackColor = System.Drawing.Color.LightSeaGreen;
             this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.pictureBox1);
-            this.panel1.Controls.Add(this.label5);
-            this.panel1.Controls.Add(this.login_registerBtn);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
@@ -71,37 +68,13 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::OUBus.Properties.Resources.icon_bus1;
-            this.pictureBox1.Location = new System.Drawing.Point(31, 57);
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(15, 17);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(144, 108);
+            this.pictureBox1.Size = new System.Drawing.Size(178, 153);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 10;
             this.pictureBox1.TabStop = false;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label5.Location = new System.Drawing.Point(44, 242);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(113, 13);
-            this.label5.TabIndex = 9;
-            this.label5.Text = "Create an Account";
-            // 
-            // login_registerBtn
-            // 
-            this.login_registerBtn.BackColor = System.Drawing.Color.LightSeaGreen;
-            this.login_registerBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.login_registerBtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.login_registerBtn.Location = new System.Drawing.Point(31, 258);
-            this.login_registerBtn.Name = "login_registerBtn";
-            this.login_registerBtn.Size = new System.Drawing.Size(144, 25);
-            this.login_registerBtn.TabIndex = 8;
-            this.login_registerBtn.Text = "REGISTER";
-            this.login_registerBtn.UseVisualStyleBackColor = false;
-            this.login_registerBtn.Click += new System.EventHandler(this.login_btn_Click);
             // 
             // close
             // 
@@ -215,8 +188,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Button login_registerBtn;
         private System.Windows.Forms.TextBox login_username;
         private System.Windows.Forms.TextBox login_password;
         private System.Windows.Forms.CheckBox login_showPass;

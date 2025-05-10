@@ -33,14 +33,16 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.ptbStudent = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ptbStudent)).BeginInit();
             this.SuspendLayout();
             // 
             // cbxChonTuyen
             // 
             this.cbxChonTuyen.FormattingEnabled = true;
+            this.cbxChonTuyen.Items.AddRange(new object[] {
+            "Cung văn hóa lao động",
+            "Huỳnh Lan Khanh",
+            "Trường Chinh"});
             this.cbxChonTuyen.Location = new System.Drawing.Point(256, 37);
             this.cbxChonTuyen.Name = "cbxChonTuyen";
             this.cbxChonTuyen.Size = new System.Drawing.Size(121, 21);
@@ -79,34 +81,25 @@
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(3, 184);
+            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.dataGridView1.Location = new System.Drawing.Point(0, 186);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(603, 150);
+            this.dataGridView1.Size = new System.Drawing.Size(603, 423);
             this.dataGridView1.TabIndex = 4;
-            // 
-            // ptbStudent
-            // 
-            this.ptbStudent.Location = new System.Drawing.Point(41, 204);
-            this.ptbStudent.Name = "ptbStudent";
-            this.ptbStudent.Size = new System.Drawing.Size(73, 74);
-            this.ptbStudent.TabIndex = 5;
-            this.ptbStudent.TabStop = false;
             // 
             // CheckerCheckStudent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.ptbStudent);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dtpChonNgay);
             this.Controls.Add(this.cbxChonTuyen);
             this.Name = "CheckerCheckStudent";
-            this.Size = new System.Drawing.Size(603, 383);
+            this.Size = new System.Drawing.Size(603, 609);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ptbStudent)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -119,6 +112,5 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.PictureBox ptbStudent;
     }
 }

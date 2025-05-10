@@ -19,7 +19,7 @@ namespace OUBus
         {
             InitializeComponent();
             // Khởi tạo kết nối (thay bằng chuỗi kết nối của bạn)
-            string connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=H:\\OUBus_2\\OUBus_2\\OUBus\\cafe.mdf;Integrated Security=True;Connect Timeout=30";
+            string connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=H:\\OUBus_Manage\\OUBus\\cafe.mdf;Integrated Security=True;Connect Timeout=30";
             connect = new SqlConnection(connectionString);
 
             
@@ -40,7 +40,7 @@ namespace OUBus
                 if (connect.State == ConnectionState.Closed)
                     connect.Open();
 
-                string query = "SELECT DISTINCT tuyen_xe FROM chuyenxe WHERE tuyen_xe IS NOT NULL";
+                string query = "SELECT DISTINCT tuyen_xe FROM datve WHERE tuyen_xe IS NOT NULL";
                 using (SqlCommand cmd = new SqlCommand(query, connect))
                 {
                     using (SqlDataReader reader = cmd.ExecuteReader())
@@ -79,17 +79,18 @@ namespace OUBus
 
                 string query = @"
                 SELECT 
-                    mssv,
+                    mssv AS MSSV,
+                    profile_image as [Ảnh sinh viên],
                     CASE 
-                        WHEN di_sang = 1 THEN 'Sáng'
-                        WHEN di_trua = 1 THEN 'Trưa'
+                        WHEN di_sang = 1 THEN N'Sáng'
+                        WHEN di_trua = 1 THEN N'Trưa'
                         ELSE ''
-                    END AS DepartureTime,
+                    END AS [Đi],
                     CASE 
-                        WHEN ve_trua = 1 THEN 'Trưa'
-                        WHEN ve_chieu = 1 THEN 'Chiều'
+                        WHEN ve_trua = 1 THEN N'Trưa'
+                        WHEN ve_chieu = 1 THEN N'Chiều'
                         ELSE ''
-                    END AS ReturnTime
+                    END AS [Về]
                 FROM datve
                 WHERE tuyen_xe = @tuyenXe AND ngay_di = @ngayDi";
 
@@ -103,6 +104,11 @@ namespace OUBus
                         DataTable dt = new DataTable();
                         adapter.Fill(dt);
                         dataGridView1.DataSource = dt;
+                        // Tùy chỉnh kích thước để ảnh hiển thị to hơn
+                        dataGridView1.Columns["Ảnh sinh viên"].Width = 150; // Tăng chiều rộng cột ảnh
+                        dataGridView1.RowTemplate.Height = 180; // Tăng chiều cao hàng
+                        dataGridView1.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None; // Tắt auto-size để giữ chiều cao cố định
+                        dataGridView1.AllowUserToAddRows = false; // Tắt hàng trống
                     }
                 }
             }
@@ -129,78 +135,9 @@ namespace OUBus
 
         private void dataGridView1_SelectionChanged(object sender, EventArgs e)
         {
-            if (dataGridView1.SelectedRows.Count > 0)
-            {
-                string mssv = dataGridView1.SelectedRows[0].Cells["MSSV"].Value.ToString();
-                LoadProfileImage(mssv);
-            }
-            else
-            {
-                ptbStudent.Image = null;
-            }
+            
         }
 
-        private void LoadProfileImage(string mssv)
-        {
-            try
-            {
-                if (connect.State == ConnectionState.Closed)
-                    connect.Open();
-
-                // Ưu tiên lấy profile_image từ datve
-                string query = @"
-                SELECT profile_image 
-                FROM datve 
-                WHERE mssv = @mssv AND ngay_di = @ngayDi AND tuyen_xe = @tuyenXe";
-                using (SqlCommand cmd = new SqlCommand(query, connect))
-                {
-                    cmd.Parameters.AddWithValue("@mssv", mssv);
-                    cmd.Parameters.AddWithValue("@ngayDi", dtpChonNgay.Value.Date);
-                    cmd.Parameters.AddWithValue("@tuyenXe", cbxChonTuyen.SelectedItem.ToString());
-
-                    var imageData = cmd.ExecuteScalar() as byte[];
-
-                    if (imageData != null && imageData.Length > 0)
-                    {
-                        using (MemoryStream ms = new MemoryStream(imageData))
-                        {
-                            ptbStudent.Image = Image.FromStream(ms);
-                        }
-                    }
-                    else
-                    {
-                        // Nếu không có trong datve, lấy từ users
-                        query = "SELECT profile_image FROM users WHERE mssv = @mssv";
-                        cmd.CommandText = query;
-                        cmd.Parameters.Clear();
-                        cmd.Parameters.AddWithValue("@mssv", mssv);
-
-                        imageData = cmd.ExecuteScalar() as byte[];
-                        if (imageData != null && imageData.Length > 0)
-                        {
-                            using (MemoryStream ms = new MemoryStream(imageData))
-                            {
-                                ptbStudent.Image = Image.FromStream(ms);
-                            }
-                        }
-                        else
-                        {
-                            ptbStudent.Image = null; // Ảnh mặc định
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error loading profile image: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                ptbStudent.Image = null;
-            }
-            finally
-            {
-                if (connect.State == ConnectionState.Open)
-                    connect.Close();
-            }
-        }
     
 
         private void label1_Click(object sender, EventArgs e)

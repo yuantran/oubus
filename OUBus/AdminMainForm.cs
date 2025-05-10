@@ -68,7 +68,7 @@ namespace OUBus
                 // Gán username vào Label
                 if (!string.IsNullOrEmpty(LoggedInUser.Username))
                 {
-                    lblAdminUsername.Text = $"Username: {LoggedInUser.Username}";
+                    lblAdminUsername.Text = $"Chào mừng trở lại, {LoggedInUser.Username}";
                 }
                 
             }
@@ -105,6 +105,7 @@ namespace OUBus
             adminAddUsers1.Visible = false;
             adminAddProducts1.Visible = false;
             adminViewBooking1.Visible = false;
+            adminViewFeedback1.Visible = false;
 
         }
 
@@ -115,6 +116,8 @@ namespace OUBus
             adminAddUsers1.Visible = true;
             adminAddProducts1.Visible = false;
             adminViewBooking1.Visible = false;
+            adminViewFeedback1.Visible = false;
+
         }
 
         private void button3_Click(object sender, EventArgs e) //Thêm chuyến
@@ -123,6 +126,8 @@ namespace OUBus
             adminAddUsers1.Visible = false;
             adminAddProducts1.Visible = true;
             adminViewBooking1.Visible = false;
+            adminViewFeedback1.Visible = false;
+
         }
 
         private void btnViewBooking_Click(object sender, EventArgs e) //Xem ds đặt vé
@@ -131,6 +136,18 @@ namespace OUBus
             adminAddUsers1.Visible = false;
             adminAddProducts1.Visible = false;
             adminViewBooking1.Visible = true;
+            adminViewFeedback1.Visible = false;
+
+        }
+
+        private void btnViewFeedback_Click(object sender, EventArgs e)
+        {
+            adminDashboardForm1.Visible = false;
+            adminAddUsers1.Visible = false;
+            adminAddProducts1.Visible = false;
+            adminViewBooking1.Visible = false;
+            adminViewFeedback1.Visible = true;
+
         }
     }
 }

@@ -29,18 +29,18 @@
         private void InitializeComponent()
         {
             this.panel3 = new System.Windows.Forms.Panel();
+            this.studentFeedBack1 = new OUBus.StudentFeedBack();
+            this.studentBooking1 = new OUBus.StudentBooking();
             this.panel2 = new System.Windows.Forms.Panel();
             this.logout_btn = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnFeedBack = new System.Windows.Forms.Button();
             this.btn_DatVe = new System.Windows.Forms.Button();
             this.lblMSSV = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.ptbStudentImage = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panel4 = new System.Windows.Forms.Panel();
             this.close = new System.Windows.Forms.Label();
             this.lbl_oubus = new System.Windows.Forms.Label();
-            this.studentBooking1 = new OUBus.StudentBooking();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptbStudentImage)).BeginInit();
@@ -50,6 +50,7 @@
             // panel3
             // 
             this.panel3.Controls.Add(this.studentBooking1);
+            this.panel3.Controls.Add(this.studentFeedBack1);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(200, 34);
             this.panel3.Margin = new System.Windows.Forms.Padding(2);
@@ -57,11 +58,27 @@
             this.panel3.Size = new System.Drawing.Size(801, 715);
             this.panel3.TabIndex = 5;
             // 
+            // studentFeedBack1
+            // 
+            this.studentFeedBack1.Location = new System.Drawing.Point(0, 0);
+            this.studentFeedBack1.Name = "studentFeedBack1";
+            this.studentFeedBack1.Size = new System.Drawing.Size(801, 712);
+            this.studentFeedBack1.TabIndex = 1;
+            // 
+            // studentBooking1
+            // 
+            this.studentBooking1.AutoScroll = true;
+            this.studentBooking1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.studentBooking1.Location = new System.Drawing.Point(0, 0);
+            this.studentBooking1.Name = "studentBooking1";
+            this.studentBooking1.Size = new System.Drawing.Size(801, 715);
+            this.studentBooking1.TabIndex = 0;
+            // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.LightSeaGreen;
             this.panel2.Controls.Add(this.logout_btn);
-            this.panel2.Controls.Add(this.button2);
+            this.panel2.Controls.Add(this.btnFeedBack);
             this.panel2.Controls.Add(this.btn_DatVe);
             this.panel2.Controls.Add(this.lblMSSV);
             this.panel2.Controls.Add(this.label1);
@@ -85,17 +102,18 @@
             this.logout_btn.UseVisualStyleBackColor = false;
             this.logout_btn.Click += new System.EventHandler(this.logout_btn_Click);
             // 
-            // button2
+            // btnFeedBack
             // 
-            this.button2.BackColor = System.Drawing.Color.LightSeaGreen;
-            this.button2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.SystemColors.Window;
-            this.button2.Location = new System.Drawing.Point(24, 295);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(151, 43);
-            this.button2.TabIndex = 16;
-            this.button2.Text = "Phản ảnh";
-            this.button2.UseVisualStyleBackColor = false;
+            this.btnFeedBack.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.btnFeedBack.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFeedBack.ForeColor = System.Drawing.SystemColors.Window;
+            this.btnFeedBack.Location = new System.Drawing.Point(24, 295);
+            this.btnFeedBack.Name = "btnFeedBack";
+            this.btnFeedBack.Size = new System.Drawing.Size(151, 43);
+            this.btnFeedBack.TabIndex = 16;
+            this.btnFeedBack.Text = "Phản ảnh";
+            this.btnFeedBack.UseVisualStyleBackColor = false;
+            this.btnFeedBack.Click += new System.EventHandler(this.btnFeedBack_Click);
             // 
             // btn_DatVe
             // 
@@ -144,7 +162,6 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.Control;
-            this.panel1.Controls.Add(this.panel4);
             this.panel1.Controls.Add(this.close);
             this.panel1.Controls.Add(this.lbl_oubus);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -152,13 +169,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1001, 34);
             this.panel1.TabIndex = 3;
-            // 
-            // panel4
-            // 
-            this.panel4.Location = new System.Drawing.Point(200, 34);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(801, 715);
-            this.panel4.TabIndex = 1;
             // 
             // close
             // 
@@ -181,15 +191,6 @@
             this.lbl_oubus.Size = new System.Drawing.Size(192, 15);
             this.lbl_oubus.TabIndex = 12;
             this.lbl_oubus.Text = "OU Bus Management System";
-            // 
-            // studentBooking1
-            // 
-            this.studentBooking1.AutoScroll = true;
-            this.studentBooking1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.studentBooking1.Location = new System.Drawing.Point(0, 0);
-            this.studentBooking1.Name = "studentBooking1";
-            this.studentBooking1.Size = new System.Drawing.Size(801, 715);
-            this.studentBooking1.TabIndex = 0;
             // 
             // StudentMainForm
             // 
@@ -216,7 +217,7 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button logout_btn;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnFeedBack;
         private System.Windows.Forms.Button btn_DatVe;
         private System.Windows.Forms.Label lblMSSV;
         private System.Windows.Forms.Label label1;
@@ -225,6 +226,6 @@
         private System.Windows.Forms.Label close;
         private System.Windows.Forms.Label lbl_oubus;
         private StudentBooking studentBooking1;
-        private System.Windows.Forms.Panel panel4;
+        private StudentFeedBack studentFeedBack1;
     }
 }

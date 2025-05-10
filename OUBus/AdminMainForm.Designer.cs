@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminMainForm));
             this.panel1 = new System.Windows.Forms.Panel();
             this.close = new System.Windows.Forms.Label();
             this.lbl_oubus = new System.Windows.Forms.Label();
@@ -40,16 +39,18 @@
             this.button1 = new System.Windows.Forms.Button();
             this.lblAdminUsername = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.ptbAdminImage = new System.Windows.Forms.PictureBox();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.adminViewBooking1 = new OUBus.AdminViewBooking();
+            this.btnViewFeedback = new System.Windows.Forms.Button();
+            this.ptbAdminImage = new System.Windows.Forms.PictureBox();
             this.adminDashboardForm1 = new OUBus.AdminDashboardForm();
-            this.adminAddProducts1 = new OUBus.AdminThemChuyen();
+            this.adminAddProducts1 = new OUBus.AdminSchedule();
             this.adminAddUsers1 = new OUBus.AdminAddUsers();
+            this.adminViewBooking1 = new OUBus.AdminViewBooking();
+            this.adminViewFeedback1 = new OUBus.AdminViewFeedback();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ptbAdminImage)).BeginInit();
             this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbAdminImage)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -87,6 +88,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.panel2.Controls.Add(this.btnViewFeedback);
             this.panel2.Controls.Add(this.logout_btn);
             this.panel2.Controls.Add(this.btnViewBooking);
             this.panel2.Controls.Add(this.btnAddTrip);
@@ -105,13 +107,13 @@
             // logout_btn
             // 
             this.logout_btn.BackColor = System.Drawing.Color.SteelBlue;
-            this.logout_btn.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.logout_btn.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.logout_btn.ForeColor = System.Drawing.SystemColors.Window;
-            this.logout_btn.Location = new System.Drawing.Point(24, 437);
+            this.logout_btn.Location = new System.Drawing.Point(24, 474);
             this.logout_btn.Name = "logout_btn";
             this.logout_btn.Size = new System.Drawing.Size(151, 34);
             this.logout_btn.TabIndex = 19;
-            this.logout_btn.Text = "Logout";
+            this.logout_btn.Text = "Đăng xuất";
             this.logout_btn.UseVisualStyleBackColor = false;
             this.logout_btn.Click += new System.EventHandler(this.logout_btn_Click);
             // 
@@ -120,7 +122,7 @@
             this.btnViewBooking.BackColor = System.Drawing.Color.LightSeaGreen;
             this.btnViewBooking.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnViewBooking.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnViewBooking.Location = new System.Drawing.Point(24, 348);
+            this.btnViewBooking.Location = new System.Drawing.Point(24, 345);
             this.btnViewBooking.Name = "btnViewBooking";
             this.btnViewBooking.Size = new System.Drawing.Size(151, 34);
             this.btnViewBooking.TabIndex = 18;
@@ -133,11 +135,11 @@
             this.btnAddTrip.BackColor = System.Drawing.Color.LightSeaGreen;
             this.btnAddTrip.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddTrip.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnAddTrip.Location = new System.Drawing.Point(24, 305);
+            this.btnAddTrip.Location = new System.Drawing.Point(24, 302);
             this.btnAddTrip.Name = "btnAddTrip";
             this.btnAddTrip.Size = new System.Drawing.Size(151, 34);
             this.btnAddTrip.TabIndex = 17;
-            this.btnAddTrip.Text = "Thêm chuyến";
+            this.btnAddTrip.Text = "Lập lịch";
             this.btnAddTrip.UseVisualStyleBackColor = false;
             this.btnAddTrip.Click += new System.EventHandler(this.button3_Click);
             // 
@@ -170,13 +172,13 @@
             // lblAdminUsername
             // 
             this.lblAdminUsername.AutoSize = true;
-            this.lblAdminUsername.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAdminUsername.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblAdminUsername.ForeColor = System.Drawing.SystemColors.Window;
             this.lblAdminUsername.Location = new System.Drawing.Point(3, 183);
             this.lblAdminUsername.Name = "lblAdminUsername";
-            this.lblAdminUsername.Size = new System.Drawing.Size(112, 14);
+            this.lblAdminUsername.Size = new System.Drawing.Size(123, 16);
             this.lblAdminUsername.TabIndex = 14;
-            this.lblAdminUsername.Text = "Username: Admin";
+            this.lblAdminUsername.Text = "Chào mừng trở lại";
             // 
             // label1
             // 
@@ -189,22 +191,13 @@
             this.label1.TabIndex = 13;
             this.label1.Text = "Admin\'s Portal";
             // 
-            // ptbAdminImage
-            // 
-            this.ptbAdminImage.Image = ((System.Drawing.Image)(resources.GetObject("ptbAdminImage.Image")));
-            this.ptbAdminImage.Location = new System.Drawing.Point(24, 3);
-            this.ptbAdminImage.Name = "ptbAdminImage";
-            this.ptbAdminImage.Size = new System.Drawing.Size(151, 129);
-            this.ptbAdminImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.ptbAdminImage.TabIndex = 11;
-            this.ptbAdminImage.TabStop = false;
-            // 
             // panel3
             // 
-            this.panel3.Controls.Add(this.adminViewBooking1);
             this.panel3.Controls.Add(this.adminDashboardForm1);
             this.panel3.Controls.Add(this.adminAddProducts1);
             this.panel3.Controls.Add(this.adminAddUsers1);
+            this.panel3.Controls.Add(this.adminViewBooking1);
+            this.panel3.Controls.Add(this.adminViewFeedback1);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(200, 37);
             this.panel3.Margin = new System.Windows.Forms.Padding(2);
@@ -213,12 +206,27 @@
             this.panel3.TabIndex = 2;
             this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
             // 
-            // adminViewBooking1
+            // btnViewFeedback
             // 
-            this.adminViewBooking1.Location = new System.Drawing.Point(0, 0);
-            this.adminViewBooking1.Name = "adminViewBooking1";
-            this.adminViewBooking1.Size = new System.Drawing.Size(454, 257);
-            this.adminViewBooking1.TabIndex = 3;
+            this.btnViewFeedback.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.btnViewFeedback.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnViewFeedback.ForeColor = System.Drawing.SystemColors.Window;
+            this.btnViewFeedback.Location = new System.Drawing.Point(24, 394);
+            this.btnViewFeedback.Name = "btnViewFeedback";
+            this.btnViewFeedback.Size = new System.Drawing.Size(151, 47);
+            this.btnViewFeedback.TabIndex = 20;
+            this.btnViewFeedback.Text = "Danh sách phản ảnh";
+            this.btnViewFeedback.UseVisualStyleBackColor = false;
+            this.btnViewFeedback.Click += new System.EventHandler(this.btnViewFeedback_Click);
+            // 
+            // ptbAdminImage
+            // 
+            this.ptbAdminImage.Location = new System.Drawing.Point(24, 3);
+            this.ptbAdminImage.Name = "ptbAdminImage";
+            this.ptbAdminImage.Size = new System.Drawing.Size(151, 129);
+            this.ptbAdminImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.ptbAdminImage.TabIndex = 11;
+            this.ptbAdminImage.TabStop = false;
             // 
             // adminDashboardForm1
             // 
@@ -244,6 +252,20 @@
             this.adminAddUsers1.Size = new System.Drawing.Size(972, 528);
             this.adminAddUsers1.TabIndex = 3;
             // 
+            // adminViewBooking1
+            // 
+            this.adminViewBooking1.Location = new System.Drawing.Point(0, 0);
+            this.adminViewBooking1.Name = "adminViewBooking1";
+            this.adminViewBooking1.Size = new System.Drawing.Size(939, 530);
+            this.adminViewBooking1.TabIndex = 3;
+            // 
+            // adminViewFeedback1
+            // 
+            this.adminViewFeedback1.Location = new System.Drawing.Point(0, 0);
+            this.adminViewFeedback1.Name = "adminViewFeedback1";
+            this.adminViewFeedback1.Size = new System.Drawing.Size(951, 533);
+            this.adminViewFeedback1.TabIndex = 21;
+            // 
             // AdminMainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -260,8 +282,8 @@
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ptbAdminImage)).EndInit();
             this.panel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.ptbAdminImage)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -282,9 +304,11 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label close;
         private AdminAddUsers adminAddUsers1;
-        private AdminThemChuyen adminAddProducts1;
+        private AdminSchedule adminAddProducts1;
         
         private AdminDashboardForm adminDashboardForm1;
         private AdminViewBooking adminViewBooking1;
+        private System.Windows.Forms.Button btnViewFeedback;
+        private AdminViewFeedback adminViewFeedback1;
     }
 }

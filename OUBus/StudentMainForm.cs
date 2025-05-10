@@ -78,7 +78,8 @@ namespace OUBus
        
     private void btn_DatVe_Click(object sender, EventArgs e)
         {
-            studentBooking1.Visible = false;
+            studentBooking1.Visible = true;
+            studentFeedBack1.Visible = false;
         }
 
         private void logout_btn_Click(object sender, EventArgs e)
@@ -91,6 +92,12 @@ namespace OUBus
 
                 this.Hide();
             }
+        }
+
+        private void btnFeedBack_Click(object sender, EventArgs e)
+        {
+            studentBooking1.Visible = false;
+            studentFeedBack1.Visible = true;
         }
     }
 }

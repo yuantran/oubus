@@ -162,7 +162,7 @@ namespace OUBus
         string lastSelectedTuyen = ""; // biến này lưu lại tuyến cũ
         private bool IsBookingTimeValid()
         {
-            DateTime now = DateTime.Now;
+            DateTime now = new DateTime(2025, 5, 5);
             DateTime today = now.Date; //có thể chỉnh thời gian ảo để test
 
             // Tìm thứ 2 của tuần hiện tại
@@ -255,7 +255,7 @@ namespace OUBus
         }
         private void LuuLichVaoDatabase(List<LichDiVe> danhSachLich)
         {
-            using (SqlConnection connect = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=H:\OUBus_2\OUBus_2\OUBus\cafe.mdf;Integrated Security=True;Connect Timeout=30"))
+            using (SqlConnection connect = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=H:\OUBus_Manage\OUBus\cafe.mdf;Integrated Security=True;Connect Timeout=30"))
             {
                 try
                 {
@@ -368,5 +368,81 @@ namespace OUBus
             { }    
 
         }
-    }           
+        public class DatVeData
+        {
+            public int Id { get; set; }
+            public string MSSV { get; set; }
+            public string TuyenXe { get; set; }
+            public string Phone { get; set; }
+            public DateTime NgayDi { get; set; }
+            public bool DiSang { get; set; }
+            public bool DiTrua { get; set; }
+            public bool VeTrua { get; set; }
+            public bool VeChieu { get; set; }
+            public byte[] ProfileImage { get; set; } // Thêm để lưu dữ liệu hình ảnh
+
+        }
+
+        public static List<DatVeData> GetDatVeData(string mssv = null)
+        {
+            List<DatVeData> datVeList = new List<DatVeData>();
+
+            using (SqlConnection connect = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=H:\OUBus_Manage\OUBus\cafe.mdf;Integrated Security=True;Connect Timeout=30"))
+            {
+                try
+                {
+                    connect.Open();
+
+                    string query = "SELECT id, mssv, tuyen_xe, phone, ngay_di, di_sang, di_trua, ve_trua, " +
+                        "ve_chieu, profile_image FROM datve";
+                    if (!string.IsNullOrEmpty(mssv))
+                    {
+                        query += " WHERE mssv = @mssv";
+                    }
+
+                    using (SqlCommand cmd = new SqlCommand(query, connect))
+                    {
+                        if (!string.IsNullOrEmpty(mssv))
+                        {
+                            cmd.Parameters.AddWithValue("@mssv", mssv);
+                        }
+
+                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                datVeList.Add(new DatVeData
+                                {
+                                    Id = reader.GetInt32(0),
+                                    MSSV = reader.GetString(1),
+                                    TuyenXe = reader.GetString(2),
+                                    Phone = reader.GetString(3),
+                                    NgayDi = reader.GetDateTime(4),
+                                    DiSang = reader.GetBoolean(5),
+                                    DiTrua = reader.GetBoolean(6),
+                                    VeTrua = reader.GetBoolean(7),
+                                    VeChieu = reader.GetBoolean(8),
+                                    ProfileImage = reader[9] as byte[] // Lấy dữ liệu hình ảnh
+
+                                });
+                            }
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Lỗi khi lấy dữ liệu đặt vé: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                finally
+                {
+                    connect.Close();
+                }
+            }
+
+            return datVeList;
+        }
+
+        public event EventHandler BookingSaved; // Sự kiện được kích hoạt khi lưu lịch
+
+    }
 }

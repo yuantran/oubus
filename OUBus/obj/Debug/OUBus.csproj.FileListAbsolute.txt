@@ -76,8 +76,6 @@ H:\OUBus_2\OUBus_2\OUBus\obj\Debug\OUBus.csproj.CopyComplete
 H:\OUBus_2\OUBus_2\OUBus\obj\Debug\OUBus.exe
 H:\OUBus_2\OUBus_2\OUBus\obj\Debug\OUBus.pdb
 H:\OUBus_2\OUBus_2\OUBus\obj\Debug\OUBus.Form1.resources
-H:\OUBus_Manage\OUBus\bin\Debug\OUBus.exe.config
-H:\OUBus_Manage\OUBus\bin\Debug\OUBus.exe
 H:\OUBus_Manage\OUBus\bin\Debug\OUBus.pdb
 H:\OUBus_Manage\OUBus\bin\Debug\EntityFramework.dll
 H:\OUBus_Manage\OUBus\bin\Debug\EntityFramework.SqlServer.dll
@@ -88,8 +86,6 @@ H:\OUBus_Manage\OUBus\bin\Debug\EntityFramework.xml
 H:\OUBus_Manage\OUBus\bin\Debug\EntityFramework.SqlServer.xml
 H:\OUBus_Manage\OUBus\bin\Debug\System.Data.SQLite.xml
 H:\OUBus_Manage\OUBus\obj\Debug\OUBus.csproj.AssemblyReference.cache
-H:\OUBus_Manage\OUBus\obj\Debug\OUBus.csproj.SuggestedBindingRedirects.cache
-H:\OUBus_Manage\OUBus\obj\Debug\OUBus.AdminThemChuyen.resources
 H:\OUBus_Manage\OUBus\obj\Debug\OUBus.AdminAddUsers.resources
 H:\OUBus_Manage\OUBus\obj\Debug\OUBus.AdminDashboardForm.resources
 H:\OUBus_Manage\OUBus\obj\Debug\OUBus.AdminMainForm.resources
@@ -103,5 +99,11 @@ H:\OUBus_Manage\OUBus\obj\Debug\OUBus.StudentMainForm.resources
 H:\OUBus_Manage\OUBus\obj\Debug\OUBus.csproj.GenerateResource.cache
 H:\OUBus_Manage\OUBus\obj\Debug\OUBus.csproj.CoreCompileInputs.cache
 H:\OUBus_Manage\OUBus\obj\Debug\OUBus.csproj.CopyComplete
-H:\OUBus_Manage\OUBus\obj\Debug\OUBus.exe
 H:\OUBus_Manage\OUBus\obj\Debug\OUBus.pdb
+H:\OUBus_Manage\OUBus\obj\Debug\OUBus.AdminSchedule.resources
+H:\OUBus_Manage\OUBus\obj\Debug\OUBus.StudentFeedBack.resources
+H:\OUBus_Manage\OUBus\obj\Debug\OUBus.AdminViewFeedback.resources
+H:\OUBus_Manage\OUBus\bin\Debug\OUBus.exe.config
+H:\OUBus_Manage\OUBus\bin\Debug\OUBus.exe
+H:\OUBus_Manage\OUBus\obj\Debug\OUBus.csproj.SuggestedBindingRedirects.cache
+H:\OUBus_Manage\OUBus\obj\Debug\OUBus.exe

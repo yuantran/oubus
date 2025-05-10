@@ -83,13 +83,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AdminThemChuyen.cs">
+    <Compile Include="AdminSchedule.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="AdminThemChuyen.Designer.cs">
-      <DependentUpon>AdminThemChuyen.cs</DependentUpon>
+    <Compile Include="AdminSchedule.Designer.cs">
+      <DependentUpon>AdminSchedule.cs</DependentUpon>
     </Compile>
-    <Compile Include="AdminThemChuyenData.cs" />
+    <Compile Include="AdminScheduleData.cs" />
     <Compile Include="AdminAddUsers.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -115,6 +115,13 @@
     <Compile Include="AdminViewBooking.Designer.cs">
       <DependentUpon>AdminViewBooking.cs</DependentUpon>
     </Compile>
+    <Compile Include="AdminViewFeedback.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AdminViewFeedback.Designer.cs">
+      <DependentUpon>AdminViewFeedback.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminViewFeedbackData.cs" />
     <Compile Include="CheckerCheckStudent.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -141,14 +148,20 @@
     <Compile Include="StudentBooking.Designer.cs">
       <DependentUpon>StudentBooking.cs</DependentUpon>
     </Compile>
+    <Compile Include="StudentFeedBack.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="StudentFeedBack.Designer.cs">
+      <DependentUpon>StudentFeedBack.cs</DependentUpon>
+    </Compile>
     <Compile Include="StudentMainForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="StudentMainForm.Designer.cs">
       <DependentUpon>StudentMainForm.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="AdminThemChuyen.resx">
-      <DependentUpon>AdminThemChuyen.cs</DependentUpon>
+    <EmbeddedResource Include="AdminSchedule.resx">
+      <DependentUpon>AdminSchedule.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AdminAddUsers.resx">
       <DependentUpon>AdminAddUsers.cs</DependentUpon>
@@ -161,6 +174,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AdminViewBooking.resx">
       <DependentUpon>AdminViewBooking.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminViewFeedback.resx">
+      <DependentUpon>AdminViewFeedback.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CheckerCheckStudent.resx">
       <DependentUpon>CheckerCheckStudent.cs</DependentUpon>
@@ -183,6 +199,9 @@
     </Compile>
     <EmbeddedResource Include="StudentBooking.resx">
       <DependentUpon>StudentBooking.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StudentFeedBack.resx">
+      <DependentUpon>StudentFeedBack.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="StudentMainForm.resx">
       <DependentUpon>StudentMainForm.cs</DependentUpon>

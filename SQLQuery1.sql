@@ -45,3 +45,13 @@ CREATE TABLE datve
 	ve_chieu BIT NULL
 )
 SELECT * FROM datve
+
+CREATE TABLE feedback (
+    id INT PRIMARY KEY IDENTITY(1,1),
+    mssv NVARCHAR(50) NOT NULL,
+    tuyen_xe NVARCHAR(100) NOT NULL,
+    van_de NVARCHAR(200) NOT NULL,
+    mo_ta NVARCHAR(MAX),
+    ngay_phan_anh DATETIME NOT NULL,
+    trang_thai NVARCHAR(50) NOT NULL DEFAULT 'Chưa xử lý',
+);

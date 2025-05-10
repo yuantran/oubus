@@ -13,7 +13,7 @@ namespace OUBus
 {
     public partial class AdminViewFeedback : UserControl
     {
-        private readonly string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=H:\OUBus_Manage\OUBus\cafe.mdf;Integrated Security=True;Connect Timeout=30";
+        private readonly string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=H:\OUBus_Manage\OUBus\oubus.mdf;Integrated Security=True;Connect Timeout=30";
         private readonly StudentFeedBack studentFeedback;
         public AdminViewFeedback()
         {
@@ -137,8 +137,8 @@ namespace OUBus
                 }
             }
         }
-            private void UpdateFeedbackStatus(int feedbackId, string newStatus)
-            {
+        private void UpdateFeedbackStatus(int feedbackId, string newStatus)
+        {
                 try
                 {
                     using (SqlConnection connection = new SqlConnection(connectionString))
@@ -161,6 +161,11 @@ namespace OUBus
                     MessageBox.Show($"Lỗi khi cập nhật trạng thái: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     throw; // Ném lỗi để CellEndEdit có thể làm mới dữ liệu
                 }
-            }
         }
+
+        private void dataGridViewFeedback_CellEndEdit_1(object sender, DataGridViewCellEventArgs e)
+        {
+            
+        }
+    }
 }

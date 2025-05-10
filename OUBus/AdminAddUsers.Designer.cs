@@ -136,7 +136,7 @@
             this.adminAddUsers_importBtn.Name = "adminAddUsers_importBtn";
             this.adminAddUsers_importBtn.Size = new System.Drawing.Size(90, 33);
             this.adminAddUsers_importBtn.TabIndex = 16;
-            this.adminAddUsers_importBtn.Text = "Import";
+            this.adminAddUsers_importBtn.Text = "Nhập ảnh";
             this.adminAddUsers_importBtn.UseVisualStyleBackColor = false;
             this.adminAddUsers_importBtn.Click += new System.EventHandler(this.adminAddUsers_importBtn_Click);
             // 
@@ -162,14 +162,14 @@
             // 
             this.adminAddUsers_clearBtn.BackColor = System.Drawing.Color.Teal;
             this.adminAddUsers_clearBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.adminAddUsers_clearBtn.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.adminAddUsers_clearBtn.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.adminAddUsers_clearBtn.ForeColor = System.Drawing.Color.White;
             this.adminAddUsers_clearBtn.Location = new System.Drawing.Point(145, 471);
             this.adminAddUsers_clearBtn.Margin = new System.Windows.Forms.Padding(2);
             this.adminAddUsers_clearBtn.Name = "adminAddUsers_clearBtn";
             this.adminAddUsers_clearBtn.Size = new System.Drawing.Size(89, 42);
             this.adminAddUsers_clearBtn.TabIndex = 13;
-            this.adminAddUsers_clearBtn.Text = "Clear";
+            this.adminAddUsers_clearBtn.Text = "Sửa";
             this.adminAddUsers_clearBtn.UseVisualStyleBackColor = false;
             this.adminAddUsers_clearBtn.Click += new System.EventHandler(this.button4_Click);
             // 
@@ -177,14 +177,14 @@
             // 
             this.adminAddUsers_updateBtn.BackColor = System.Drawing.Color.Teal;
             this.adminAddUsers_updateBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.adminAddUsers_updateBtn.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.adminAddUsers_updateBtn.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.adminAddUsers_updateBtn.ForeColor = System.Drawing.Color.White;
             this.adminAddUsers_updateBtn.Location = new System.Drawing.Point(145, 407);
             this.adminAddUsers_updateBtn.Margin = new System.Windows.Forms.Padding(2);
             this.adminAddUsers_updateBtn.Name = "adminAddUsers_updateBtn";
             this.adminAddUsers_updateBtn.Size = new System.Drawing.Size(89, 42);
             this.adminAddUsers_updateBtn.TabIndex = 12;
-            this.adminAddUsers_updateBtn.Text = "Update";
+            this.adminAddUsers_updateBtn.Text = "Cập nhật";
             this.adminAddUsers_updateBtn.UseVisualStyleBackColor = false;
             this.adminAddUsers_updateBtn.Click += new System.EventHandler(this.button3_Click);
             // 
@@ -199,7 +199,7 @@
             this.adminAddUsers_deleteBtn.Name = "adminAddUsers_deleteBtn";
             this.adminAddUsers_deleteBtn.Size = new System.Drawing.Size(89, 42);
             this.adminAddUsers_deleteBtn.TabIndex = 11;
-            this.adminAddUsers_deleteBtn.Text = "Delete";
+            this.adminAddUsers_deleteBtn.Text = "Xóa";
             this.adminAddUsers_deleteBtn.UseVisualStyleBackColor = false;
             this.adminAddUsers_deleteBtn.Click += new System.EventHandler(this.button2_Click);
             // 
@@ -214,7 +214,7 @@
             this.adminAddUsers_addBtn.Name = "adminAddUsers_addBtn";
             this.adminAddUsers_addBtn.Size = new System.Drawing.Size(89, 42);
             this.adminAddUsers_addBtn.TabIndex = 10;
-            this.adminAddUsers_addBtn.Text = "Add";
+            this.adminAddUsers_addBtn.Text = "Thêm";
             this.adminAddUsers_addBtn.UseVisualStyleBackColor = false;
             this.adminAddUsers_addBtn.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -278,7 +278,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(12, 181);
+            this.label2.Location = new System.Drawing.Point(5, 186);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(92, 17);
@@ -326,13 +326,13 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(11, 16);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(133, 22);
+            this.label1.Size = new System.Drawing.Size(191, 22);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Data of Users";
+            this.label1.Text = "Dữ liệu người dùng";
             // 
             // AdminAddUsers
             // 

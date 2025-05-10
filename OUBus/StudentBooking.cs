@@ -255,7 +255,7 @@ namespace OUBus
         }
         private void LuuLichVaoDatabase(List<LichDiVe> danhSachLich)
         {
-            using (SqlConnection connect = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=H:\OUBus_Manage\OUBus\cafe.mdf;Integrated Security=True;Connect Timeout=30"))
+            using (SqlConnection connect = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=H:\OUBus_Manage\OUBus\oubus.mdf;Integrated Security=True;Connect Timeout=30"))
             {
                 try
                 {
@@ -387,7 +387,7 @@ namespace OUBus
         {
             List<DatVeData> datVeList = new List<DatVeData>();
 
-            using (SqlConnection connect = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=H:\OUBus_Manage\OUBus\cafe.mdf;Integrated Security=True;Connect Timeout=30"))
+            using (SqlConnection connect = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=H:\OUBus_Manage\OUBus\oubus.mdf;Integrated Security=True;Connect Timeout=30"))
             {
                 try
                 {

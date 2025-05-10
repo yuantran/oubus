@@ -14,8 +14,8 @@ namespace OUBus
 {
     public partial class AdminAddUsers : UserControl
     {
-        //vô lấy lại đường dẫn của cafe.mdf
-        private readonly string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=H:\OUBus_Manage\OUBus\cafe.mdf;Integrated Security=True;Connect Timeout=30";
+        //vô lấy lại đường dẫn của oubus.mdf
+        private readonly string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=H:\OUBus_Manage\OUBus\oubus.mdf;Integrated Security=True;Connect Timeout=30";
         private readonly string userDirectoryPath = @"H:\OUBus_Manage\OUBus\User_Directory";
         private SqlConnection connect;
         public AdminAddUsers()

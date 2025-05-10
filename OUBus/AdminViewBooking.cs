@@ -16,7 +16,7 @@ namespace OUBus
 {
     public partial class AdminViewBooking : UserControl
     {
-        private readonly string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=H:\OUBus_Manage\OUBus\cafe.mdf;Integrated Security=True;Connect Timeout=30";
+        private readonly string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=H:\OUBus_Manage\OUBus\oubus.mdf;Integrated Security=True;Connect Timeout=30";
         private StudentBooking studentBooking; // Tham chiếu đến StudentBooking
         public AdminViewBooking()
         {

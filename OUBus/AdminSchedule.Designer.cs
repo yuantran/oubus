@@ -73,11 +73,11 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(18, 13);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(143, 21);
+            this.label1.Size = new System.Drawing.Size(177, 22);
             this.label1.TabIndex = 3;
             this.label1.Text = "Dữ liệu chuyến xe";
             // 
@@ -191,14 +191,14 @@
             // 
             this.btnClearTrip.BackColor = System.Drawing.Color.Teal;
             this.btnClearTrip.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnClearTrip.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClearTrip.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClearTrip.ForeColor = System.Drawing.Color.White;
             this.btnClearTrip.Location = new System.Drawing.Point(554, 165);
             this.btnClearTrip.Margin = new System.Windows.Forms.Padding(2);
             this.btnClearTrip.Name = "btnClearTrip";
-            this.btnClearTrip.Size = new System.Drawing.Size(89, 42);
+            this.btnClearTrip.Size = new System.Drawing.Size(108, 42);
             this.btnClearTrip.TabIndex = 22;
-            this.btnClearTrip.Text = "Clear";
+            this.btnClearTrip.Text = "Xóa dữ liệu";
             this.btnClearTrip.UseVisualStyleBackColor = false;
             this.btnClearTrip.Click += new System.EventHandler(this.adminAddUsers_clearBtn_Click);
             // 
@@ -206,14 +206,14 @@
             // 
             this.btnUpdateTrip.BackColor = System.Drawing.Color.Teal;
             this.btnUpdateTrip.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnUpdateTrip.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUpdateTrip.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUpdateTrip.ForeColor = System.Drawing.Color.White;
             this.btnUpdateTrip.Location = new System.Drawing.Point(303, 165);
             this.btnUpdateTrip.Margin = new System.Windows.Forms.Padding(2);
             this.btnUpdateTrip.Name = "btnUpdateTrip";
             this.btnUpdateTrip.Size = new System.Drawing.Size(89, 42);
             this.btnUpdateTrip.TabIndex = 21;
-            this.btnUpdateTrip.Text = "Update";
+            this.btnUpdateTrip.Text = "Cập nhật";
             this.btnUpdateTrip.UseVisualStyleBackColor = false;
             this.btnUpdateTrip.Click += new System.EventHandler(this.adminAddUsers_updateBtn_Click);
             // 
@@ -221,14 +221,14 @@
             // 
             this.btnDeleteTrip.BackColor = System.Drawing.Color.Teal;
             this.btnDeleteTrip.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDeleteTrip.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDeleteTrip.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDeleteTrip.ForeColor = System.Drawing.Color.White;
             this.btnDeleteTrip.Location = new System.Drawing.Point(429, 165);
             this.btnDeleteTrip.Margin = new System.Windows.Forms.Padding(2);
             this.btnDeleteTrip.Name = "btnDeleteTrip";
             this.btnDeleteTrip.Size = new System.Drawing.Size(89, 42);
             this.btnDeleteTrip.TabIndex = 20;
-            this.btnDeleteTrip.Text = "Delete";
+            this.btnDeleteTrip.Text = "Xóa lịch";
             this.btnDeleteTrip.UseVisualStyleBackColor = false;
             this.btnDeleteTrip.Click += new System.EventHandler(this.adminAddUsers_deleteBtn_Click);
             // 
@@ -236,14 +236,14 @@
             // 
             this.btnAddTrip.BackColor = System.Drawing.Color.Teal;
             this.btnAddTrip.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddTrip.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddTrip.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddTrip.ForeColor = System.Drawing.Color.White;
             this.btnAddTrip.Location = new System.Drawing.Point(177, 165);
             this.btnAddTrip.Margin = new System.Windows.Forms.Padding(2);
             this.btnAddTrip.Name = "btnAddTrip";
             this.btnAddTrip.Size = new System.Drawing.Size(89, 42);
             this.btnAddTrip.TabIndex = 19;
-            this.btnAddTrip.Text = "Add";
+            this.btnAddTrip.Text = "Lập lịch";
             this.btnAddTrip.UseVisualStyleBackColor = false;
             this.btnAddTrip.Click += new System.EventHandler(this.adminAddUsers_addBtn_Click);
             // 
@@ -257,7 +257,7 @@
             this.btnImportImage.Name = "btnImportImage";
             this.btnImportImage.Size = new System.Drawing.Size(83, 33);
             this.btnImportImage.TabIndex = 18;
-            this.btnImportImage.Text = "Import";
+            this.btnImportImage.Text = "Nhập ảnh";
             this.btnImportImage.UseVisualStyleBackColor = false;
             this.btnImportImage.Click += new System.EventHandler(this.adminAddProducts_importBtn_Click);
             // 
@@ -356,14 +356,14 @@
             this.label2.TabIndex = 3;
             this.label2.Text = "Bus ID:";
             // 
-            // AdminThemChuyen
+            // AdminSchedule
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Margin = new System.Windows.Forms.Padding(2);
-            this.Name = "AdminThemChuyen";
+            this.Name = "AdminSchedule";
             this.Size = new System.Drawing.Size(960, 605);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

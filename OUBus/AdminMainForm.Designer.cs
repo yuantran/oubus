@@ -32,6 +32,7 @@
             this.close = new System.Windows.Forms.Label();
             this.lbl_oubus = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btnViewFeedback = new System.Windows.Forms.Button();
             this.logout_btn = new System.Windows.Forms.Button();
             this.btnViewBooking = new System.Windows.Forms.Button();
             this.btnAddTrip = new System.Windows.Forms.Button();
@@ -39,9 +40,8 @@
             this.button1 = new System.Windows.Forms.Button();
             this.lblAdminUsername = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.btnViewFeedback = new System.Windows.Forms.Button();
             this.ptbAdminImage = new System.Windows.Forms.PictureBox();
+            this.panel3 = new System.Windows.Forms.Panel();
             this.adminDashboardForm1 = new OUBus.AdminDashboardForm();
             this.adminAddProducts1 = new OUBus.AdminSchedule();
             this.adminAddUsers1 = new OUBus.AdminAddUsers();
@@ -49,8 +49,8 @@
             this.adminViewFeedback1 = new OUBus.AdminViewFeedback();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
-            this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptbAdminImage)).BeginInit();
+            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -103,6 +103,19 @@
             this.panel2.Size = new System.Drawing.Size(200, 530);
             this.panel2.TabIndex = 1;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
+            // 
+            // btnViewFeedback
+            // 
+            this.btnViewFeedback.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.btnViewFeedback.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnViewFeedback.ForeColor = System.Drawing.SystemColors.Window;
+            this.btnViewFeedback.Location = new System.Drawing.Point(24, 394);
+            this.btnViewFeedback.Name = "btnViewFeedback";
+            this.btnViewFeedback.Size = new System.Drawing.Size(151, 47);
+            this.btnViewFeedback.TabIndex = 20;
+            this.btnViewFeedback.Text = "Danh sách phản ảnh";
+            this.btnViewFeedback.UseVisualStyleBackColor = false;
+            this.btnViewFeedback.Click += new System.EventHandler(this.btnViewFeedback_Click);
             // 
             // logout_btn
             // 
@@ -165,7 +178,7 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(151, 38);
             this.button1.TabIndex = 15;
-            this.button1.Text = "Dashboard";
+            this.button1.Text = "Màn hình chính";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -191,6 +204,15 @@
             this.label1.TabIndex = 13;
             this.label1.Text = "Admin\'s Portal";
             // 
+            // ptbAdminImage
+            // 
+            this.ptbAdminImage.Location = new System.Drawing.Point(24, 3);
+            this.ptbAdminImage.Name = "ptbAdminImage";
+            this.ptbAdminImage.Size = new System.Drawing.Size(151, 129);
+            this.ptbAdminImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.ptbAdminImage.TabIndex = 11;
+            this.ptbAdminImage.TabStop = false;
+            // 
             // panel3
             // 
             this.panel3.Controls.Add(this.adminDashboardForm1);
@@ -205,28 +227,6 @@
             this.panel3.Size = new System.Drawing.Size(951, 530);
             this.panel3.TabIndex = 2;
             this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
-            // 
-            // btnViewFeedback
-            // 
-            this.btnViewFeedback.BackColor = System.Drawing.Color.LightSeaGreen;
-            this.btnViewFeedback.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnViewFeedback.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnViewFeedback.Location = new System.Drawing.Point(24, 394);
-            this.btnViewFeedback.Name = "btnViewFeedback";
-            this.btnViewFeedback.Size = new System.Drawing.Size(151, 47);
-            this.btnViewFeedback.TabIndex = 20;
-            this.btnViewFeedback.Text = "Danh sách phản ảnh";
-            this.btnViewFeedback.UseVisualStyleBackColor = false;
-            this.btnViewFeedback.Click += new System.EventHandler(this.btnViewFeedback_Click);
-            // 
-            // ptbAdminImage
-            // 
-            this.ptbAdminImage.Location = new System.Drawing.Point(24, 3);
-            this.ptbAdminImage.Name = "ptbAdminImage";
-            this.ptbAdminImage.Size = new System.Drawing.Size(151, 129);
-            this.ptbAdminImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.ptbAdminImage.TabIndex = 11;
-            this.ptbAdminImage.TabStop = false;
             // 
             // adminDashboardForm1
             // 
@@ -282,8 +282,8 @@
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.ptbAdminImage)).EndInit();
+            this.panel3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

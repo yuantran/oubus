@@ -20,7 +20,7 @@ namespace OUBus
         public StudentFeedBack()
         {
             InitializeComponent();
-            string connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=H:\\OUBus_Manage\\OUBus\\cafe.mdf;Integrated Security=True;Connect Timeout=30";
+            string connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=H:\\OUBus_Manage\\OUBus\\oubus.mdf;Integrated Security=True;Connect Timeout=30";
             connect = new SqlConnection(connectionString);
         }
 

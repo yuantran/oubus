@@ -16,8 +16,8 @@ namespace OUBus
 {
     public partial class AdminSchedule : UserControl
     {
-        //vô lấy lại đường dẫn của cafe.mdf
-        SqlConnection connect = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=H:\OUBus_2\OUBus_2\OUBus\cafe.mdf;Integrated Security=True;Connect Timeout=30");
+        //vô lấy lại đường dẫn của oubus.mdf
+        SqlConnection connect = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=H:\OUBus_2\OUBus_2\OUBus\oubus.mdf;Integrated Security=True;Connect Timeout=30");
         public AdminSchedule()
         {
             InitializeComponent();
@@ -110,12 +110,12 @@ namespace OUBus
             }
         }
 
-        private void adminAddUsers_clearBtn_Click(object sender, EventArgs e) // clear product 
+        private void adminAddUsers_clearBtn_Click(object sender, EventArgs e) // clear dữ liệu
         {
             clearFields();
         }
 
-        private void adminAddUsers_updateBtn_Click(object sender, EventArgs e) // update product
+        private void adminAddUsers_updateBtn_Click(object sender, EventArgs e) // update lịch
         {
             if(emptyFields())
             {
@@ -184,7 +184,7 @@ namespace OUBus
                     {
                         connect.Open();
 
-                        // Check nếu sản phẩm sẵn sàng
+                        
                         string selectProdID = "SELECT * FROM chuyenxe WHERE chuyen_id = @chuyenId";
 
                         using (SqlCommand selectPID = new SqlCommand(selectProdID, connect))
@@ -208,7 +208,7 @@ namespace OUBus
                                 DateTime today = DateTime.Today;
 
                                 //sửa lại đường dẫn ở dưới
-                                string path = Path.Combine(@"H:\OUBus_2\OUBus_2\OUBus\Product_Directory\"
+                                string path = Path.Combine(@"H:\OUBus_Manage\OUBus\Driver_Directory"
                                     + chuyen_id.Text.Trim()+ ".jpg");
 
                                 string directoryPath = Path.GetDirectoryName(path);
@@ -219,7 +219,7 @@ namespace OUBus
                                 }
                                 if (string.IsNullOrEmpty(taiXe_image.ImageLocation))
                                 {
-                                    MessageBox.Show("Please select an image before adding the product!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                    MessageBox.Show("Vui lòng thêm ảnh tài xế!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                     return;
                                 }
 
@@ -237,7 +237,6 @@ namespace OUBus
                                     cmd.Parameters.AddWithValue("@dateInsert", today);
 
                                     cmd.ExecuteNonQuery();
-                                    displayData();
                                     clearFields();
                                     MessageBox.Show("Added successfully!", "Information Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                     displayData();
@@ -259,7 +258,7 @@ namespace OUBus
             }
         }
 
-        private void adminAddProducts_importBtn_Click(object sender, EventArgs e)
+        private void adminAddProducts_importBtn_Click(object sender, EventArgs e)// add ảnh tài xế
         {
             try
             {

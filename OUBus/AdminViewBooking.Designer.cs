@@ -32,14 +32,14 @@
             this.dataGridViewBookings = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.dtpChonNgay = new System.Windows.Forms.DateTimePicker();
+            this.label6 = new System.Windows.Forms.Label();
+            this.lblVeChieu = new System.Windows.Forms.Label();
+            this.lblVeTrua = new System.Windows.Forms.Label();
+            this.lblDiTrua = new System.Windows.Forms.Label();
+            this.lblDiSang = new System.Windows.Forms.Label();
             this.cbxChonTuyen = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.lblDiSang = new System.Windows.Forms.Label();
-            this.lblDiTrua = new System.Windows.Forms.Label();
-            this.lblVeTrua = new System.Windows.Forms.Label();
-            this.lblVeChieu = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.dtpChonNgay = new System.Windows.Forms.DateTimePicker();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewBookings)).BeginInit();
             this.panel2.SuspendLayout();
@@ -57,6 +57,7 @@
             // 
             // dataGridViewBookings
             // 
+            this.dataGridViewBookings.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewBookings.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewBookings.Location = new System.Drawing.Point(13, 13);
             this.dataGridViewBookings.Margin = new System.Windows.Forms.Padding(2);
@@ -94,6 +95,69 @@
             this.panel2.Size = new System.Drawing.Size(729, 182);
             this.panel2.TabIndex = 5;
             // 
+            // dtpChonNgay
+            // 
+            this.dtpChonNgay.Location = new System.Drawing.Point(421, 37);
+            this.dtpChonNgay.Name = "dtpChonNgay";
+            this.dtpChonNgay.Size = new System.Drawing.Size(200, 20);
+            this.dtpChonNgay.TabIndex = 32;
+            this.dtpChonNgay.ValueChanged += new System.EventHandler(this.dtpChonNgay_ValueChanged_1);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(350, 39);
+            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(47, 18);
+            this.label6.TabIndex = 31;
+            this.label6.Text = "Ngày:";
+            // 
+            // lblVeChieu
+            // 
+            this.lblVeChieu.AutoSize = true;
+            this.lblVeChieu.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblVeChieu.Location = new System.Drawing.Point(476, 99);
+            this.lblVeChieu.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblVeChieu.Name = "lblVeChieu";
+            this.lblVeChieu.Size = new System.Drawing.Size(108, 18);
+            this.lblVeChieu.TabIndex = 30;
+            this.lblVeChieu.Text = "SL về chiều: 0";
+            // 
+            // lblVeTrua
+            // 
+            this.lblVeTrua.AutoSize = true;
+            this.lblVeTrua.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblVeTrua.Location = new System.Drawing.Point(333, 99);
+            this.lblVeTrua.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblVeTrua.Name = "lblVeTrua";
+            this.lblVeTrua.Size = new System.Drawing.Size(99, 18);
+            this.lblVeTrua.TabIndex = 29;
+            this.lblVeTrua.Text = "SL về trưa: 0";
+            // 
+            // lblDiTrua
+            // 
+            this.lblDiTrua.AutoSize = true;
+            this.lblDiTrua.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDiTrua.Location = new System.Drawing.Point(183, 99);
+            this.lblDiTrua.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblDiTrua.Name = "lblDiTrua";
+            this.lblDiTrua.Size = new System.Drawing.Size(94, 18);
+            this.lblDiTrua.TabIndex = 28;
+            this.lblDiTrua.Text = "SL đi trưa: 0";
+            // 
+            // lblDiSang
+            // 
+            this.lblDiSang.AutoSize = true;
+            this.lblDiSang.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDiSang.Location = new System.Drawing.Point(41, 99);
+            this.lblDiSang.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblDiSang.Name = "lblDiSang";
+            this.lblDiSang.Size = new System.Drawing.Size(98, 18);
+            this.lblDiSang.TabIndex = 27;
+            this.lblDiSang.Text = "SL đi sáng: 0";
+            // 
             // cbxChonTuyen
             // 
             this.cbxChonTuyen.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -119,69 +183,6 @@
             this.label8.Size = new System.Drawing.Size(55, 18);
             this.label8.TabIndex = 24;
             this.label8.Text = "Tuyến:";
-            // 
-            // lblDiSang
-            // 
-            this.lblDiSang.AutoSize = true;
-            this.lblDiSang.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDiSang.Location = new System.Drawing.Point(41, 99);
-            this.lblDiSang.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblDiSang.Name = "lblDiSang";
-            this.lblDiSang.Size = new System.Drawing.Size(98, 18);
-            this.lblDiSang.TabIndex = 27;
-            this.lblDiSang.Text = "SL đi sáng: 0";
-            // 
-            // lblDiTrua
-            // 
-            this.lblDiTrua.AutoSize = true;
-            this.lblDiTrua.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDiTrua.Location = new System.Drawing.Point(183, 99);
-            this.lblDiTrua.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblDiTrua.Name = "lblDiTrua";
-            this.lblDiTrua.Size = new System.Drawing.Size(94, 18);
-            this.lblDiTrua.TabIndex = 28;
-            this.lblDiTrua.Text = "SL đi trưa: 0";
-            // 
-            // lblVeTrua
-            // 
-            this.lblVeTrua.AutoSize = true;
-            this.lblVeTrua.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblVeTrua.Location = new System.Drawing.Point(333, 99);
-            this.lblVeTrua.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblVeTrua.Name = "lblVeTrua";
-            this.lblVeTrua.Size = new System.Drawing.Size(99, 18);
-            this.lblVeTrua.TabIndex = 29;
-            this.lblVeTrua.Text = "SL về trưa: 0";
-            // 
-            // lblVeChieu
-            // 
-            this.lblVeChieu.AutoSize = true;
-            this.lblVeChieu.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblVeChieu.Location = new System.Drawing.Point(476, 99);
-            this.lblVeChieu.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblVeChieu.Name = "lblVeChieu";
-            this.lblVeChieu.Size = new System.Drawing.Size(108, 18);
-            this.lblVeChieu.TabIndex = 30;
-            this.lblVeChieu.Text = "SL về chiều: 0";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(350, 39);
-            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(47, 18);
-            this.label6.TabIndex = 31;
-            this.label6.Text = "Ngày:";
-            // 
-            // dtpChonNgay
-            // 
-            this.dtpChonNgay.Location = new System.Drawing.Point(421, 37);
-            this.dtpChonNgay.Name = "dtpChonNgay";
-            this.dtpChonNgay.Size = new System.Drawing.Size(200, 20);
-            this.dtpChonNgay.TabIndex = 32;
-            this.dtpChonNgay.ValueChanged += new System.EventHandler(this.dtpChonNgay_ValueChanged_1);
             // 
             // AdminViewBooking
             // 

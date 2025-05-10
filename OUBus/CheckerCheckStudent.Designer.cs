@@ -33,6 +33,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.panel1 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -70,7 +71,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(83, 116);
+            this.label2.Location = new System.Drawing.Point(80, 116);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(149, 16);
             this.label2.TabIndex = 3;
@@ -88,6 +89,14 @@
             this.dataGridView1.Size = new System.Drawing.Size(603, 423);
             this.dataGridView1.TabIndex = 4;
             // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(603, 190);
+            this.panel1.TabIndex = 5;
+            // 
             // CheckerCheckStudent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -97,6 +106,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dtpChonNgay);
             this.Controls.Add(this.cbxChonTuyen);
+            this.Controls.Add(this.panel1);
             this.Name = "CheckerCheckStudent";
             this.Size = new System.Drawing.Size(603, 609);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -112,5 +122,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Panel panel1;
     }
 }

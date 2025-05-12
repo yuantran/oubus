@@ -92,8 +92,8 @@ namespace OUBus
                                 if (reader.Read()) // nếu có tài khoản
                                 {
                                     string userRole = reader["role"].ToString();
-                                    LoggedInUser.Username = reader["username"].ToString(); // ✅ lưu MSSV vào biến static
-                                    LoggedInUser.MSSV = reader["mssv"].ToString(); // ✅ lưu MSSV vào biến static
+                                    LoggedInUser.Username = reader["username"].ToString(); // lưu MSSV vào biến static
+                                    LoggedInUser.MSSV = reader["mssv"].ToString(); // lưu MSSV vào biến static
                                     LoggedInUser.Phone = reader["phone"].ToString();
                                     LoggedInUser.Image = reader["profile_image"] as byte[];
 
